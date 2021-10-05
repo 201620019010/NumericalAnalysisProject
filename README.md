@@ -1,2 +1,2 @@
-# ProyectoAnalisisNumerico
-este repositorio contiene el desarrollo de los métodos de el curso análisis numérico de la universidad Eafit.
+#Numerical Analysis Project
+this repository contains the development of the methods of the numerical analysis course of the university
