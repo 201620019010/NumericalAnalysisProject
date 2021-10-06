@@ -1,0 +1,17 @@
+Enter function: e**x-x-1
+Enter the derivative of the function: e**x-1
+Enter the second derivative of the function: e**x
+Enter tolerance: 10e-7
+Enter x0: 1
+Enter the maximum number of iterations:100
+
+Multi Roots
+Result Table
+|i|        xi       |      f(xi)     |        E       |
+
+ 0  1.0000000000e+00 7.1828182846e-01
+ 1  -2.3421061355e-01 2.5405775475e-02 1.2342106136e+00
+ 2  -8.4582799108e-03 3.5670608014e-05 2.2575233364e-01
+ 3  -1.1890183809e-05 7.0687899978e-11 8.4463897270e-03
+ 4  -4.2185906989e-11 0.0000000000e+00 1.1890141623e-05
+-4.218590698935789e-11 is a root
