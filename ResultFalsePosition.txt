@@ -1,0 +1,18 @@
+INPUT
+Enter the function: math.log(math.pow(math.sin(x),2)+1)-0.5
+Enter xi: 0
+Enter xs: 1
+Enter tolerance: 10e-7
+Enter the maximum number of iterations: 100
+
+OUTPUT
+
+False position
+Results table:
+|i |        a        |        xm       |        b        |      f(Xm)       |        E        |
+
+ 1  0.0000000000e+00  9.3394038072e-01  1.0000000000e+00  -1.4290767037e-03
+ 2  9.3394038072e-01  9.3650605167e-01  1.0000000000e+00  5.8756008358e-05  2.5656709474e-03
+ 3  9.3394038072e-01  9.3640473074e-01  9.3650605167e-01  8.6782540820e-08  1.0132092298e-04
+ 4  9.3394038072e-01  9.3640458110e-01  9.3640473074e-01  1.2815426498e-10  1.4964177197e-07
+ 0.9364045811008692 is an approximation to a root with a tolerance: 1e-06

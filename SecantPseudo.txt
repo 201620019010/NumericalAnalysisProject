@@ -1,0 +1,48 @@
+#Pseudocode
+ Algorithm Secant Method
+
+ var f, x0, x1, tol, niter 
+
+START
+Read f, x0, x1, tol, niter 
+
+fx0 <- f(x0)
+
+if fx0 = 0 then
+    print x0 is a root: 
+else:
+    fx1 <-  f(x1)
+    cont <-  0
+    err <-  tol + 1
+    err_aux <-  tol + 1
+    den <-  fx1 - fx0
+    while err_aux > tol and fx1 != 0 and den != 0 and cont < niter then
+        if err_aux = tol + 1 then
+            print  {cont},  {x0}, {fx0}
+        else:
+            if cont < 10 then
+                print {cont}, {x0}, {fx0}, {err_aux}
+            else:
+                print {cont}, {x0}, {fx0}, {err_aux:}
+        err_aux <- err
+        x2 <- x1 - fx1 * (x1 - x0)/den
+        err <- abs(x2 - x1)
+        x0 <- x1
+        fx0 <- fx1
+        x1 <- x2
+        fx1 <- f(x1)
+        den <- fx1 - fx0
+        cont <- cont + 1
+    if cont < 10 then
+        print {cont}, {x0}, {fx0}, {err_aux}
+    else:
+        print {cont}, {x0}, {fx0}, {err_aux}
+    if fx1 = 0 then
+        print x1 is a root 
+    elif err < tol then
+        print x1 is an approximation to a root with a tolerance:, tol)
+    elif den = 0 then
+        print "there is a posible multiple root"
+    else:
+        print Failed in, {niter } ,iterations
+END

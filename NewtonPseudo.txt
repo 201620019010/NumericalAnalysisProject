@@ -1,0 +1,39 @@
+#Pseudocode
+Algorithm Newton
+
+var =f,df, tol, x0, niter
+
+START
+
+ read f,df,tol,x0,niter
+
+ fx <- f(x0)
+ dfx <- df(x0)
+ count <- 0
+ err <- tol + 1
+ while err > tol and fx != 0 and dfx != 0 and count < niter:
+    if err = tol + 1:
+        print count  ,x0, fx
+    else:
+        if count < 10:
+            print count, x0, fx, err
+        else:
+            print count, x0, fx, err
+    x1 <-x0 - (fx/dfx)
+    fx <-f(x1)
+    dfx <- df(x1)
+    err <- abs(x1 - x0)
+    x0 <- x1
+    count <- count + 1
+if count < 10:
+    print count, x0, fx, err
+else:
+    print count, x0, fx, err
+if fx = 0:
+    print x0 is a root
+elif err < tol:
+    print "x1 es an approximation to a root with a tolerance:", tol
+elif dfx == 0:
+    print x1 is a possible multiple root"
+else:
+    print "Failed in ", niter , "iterations"

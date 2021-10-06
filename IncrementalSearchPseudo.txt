@@ -1,0 +1,36 @@
+# Pseudocode
+Algorithm Incremental Search
+
+var =f, x0,delta, niter,
+
+START
+ read f,x0,delt,niter
+
+ evaluate x0 in f
+ fx0<- f(x0)
+ if fx0 = 0 then
+   x0 is a root
+ else
+  x1<-x0 + delta
+  count <- 1
+  fx1 <- f(x1)
+
+  while count < ninter do
+   x0 <- x1
+   fx0 <- fx1 
+   x1 <- x0 + delta 
+   fx1 <- f(x1)
+   count <- cont + 1
+        if fx0 = 0.0 then
+            print  "x0 is a root"
+        if fx1 = 0.0 then
+            print " x1 is a root"
+        if fx0 * fx1 < 0.0 then 
+            print " There is a root between x0 and x1")
+        else print "Failed in  niter interations"
+        end if
+    end while
+ end if 
+END
+
+
