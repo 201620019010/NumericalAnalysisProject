@@ -1,0 +1,122 @@
+INPUT
+
+Enter the function: math.log(math.pow(math.sin(x0),2)+1-0.5)
+Enter x0: -3
+Enter delta: 0.5
+Enter the maximum number of iterations: 100
+
+OUTPUT
+
+Incremental search results:
+
+ There is a root between -2.0000000000e+00 and -1.5000000000e+00
+ There is a root between -5.0000000000e-01 and 0.0000000000e+00
+ There is a root between 1.0000000000e+00 and 1.5000000000e+00
+ There is a root between 2.5000000000e+00 and 3.0000000000e+00
+ There is a root between 4.0000000000e+00 and 4.5000000000e+00
+ There is a root between 5.5000000000e+00 and 6.0000000000e+00
+ There is a root between 7.5000000000e+00 and 8.0000000000e+00
+ There is a root between 9.0000000000e+00 and 9.5000000000e+00
+ There is a root between 1.0500000000e+01 and 1.1000000000e+01
+ There is a root between 1.2000000000e+01 and 1.2500000000e+01
+ There is a root between 1.3500000000e+01 and 1.4000000000e+01
+ There is a root between 1.5000000000e+01 and 1.5500000000e+01
+ There is a root between 1.6500000000e+01 and 1.7000000000e+01
+ There is a root between 1.8500000000e+01 and 1.9000000000e+01
+ There is a root between 2.0000000000e+01 and 2.0500000000e+01
+ There is a root between 2.1500000000e+01 and 2.2000000000e+01
+ There is a root between 2.3000000000e+01 and 2.3500000000e+01
+ There is a root between 2.4500000000e+01 and 2.5000000000e+01
+ There is a root between 2.6000000000e+01 and 2.6500000000e+01
+ There is a root between 2.7500000000e+01 and 2.8000000000e+01
+ There is a root between 2.9500000000e+01 and 3.0000000000e+01
+ There is a root between 3.1000000000e+01 and 3.1500000000e+01
+ There is a root between 3.2500000000e+01 and 3.3000000000e+01
+ There is a root between 3.4000000000e+01 and 3.4500000000e+01
+ There is a root between 3.5500000000e+01 and 3.6000000000e+01
+ There is a root between 3.7000000000e+01 and 3.7500000000e+01
+ There is a root between 3.8500000000e+01 and 3.9000000000e+01
+ There is a root between 4.0500000000e+01 and 4.1000000000e+01
+ There is a root between 4.2000000000e+01 and 4.2500000000e+01
+ There is a root between 4.3500000000e+01 and 4.4000000000e+01
+ There is a root between 4.5000000000e+01 and 4.5500000000e+01
+ There is a root between 4.6500000000e+01 and 4.7000000000e+01
+
+INPUT
+Enter the function: math.log(math.pow(math.sin(x),2)+1)-0.5
+Enter xi: 0
+Enter xs: 1
+Enter tolerance: 10e-7
+Enter the maximum number of iterations: 100
+
+OUTPUT
+
+False position
+Results table:
+|i |        a        |        xm       |        b        |      f(Xm)       |        E        |
+
+ 1  0.0000000000e+00  9.3394038072e-01  1.0000000000e+00  -1.4290767037e-03
+ 2  9.3394038072e-01  9.3650605167e-01  1.0000000000e+00  5.8756008358e-05  2.5656709474e-03
+ 3  9.3394038072e-01  9.3640473074e-01  9.3650605167e-01  8.6782540820e-08  1.0132092298e-04
+ 4  9.3394038072e-01  9.3640458110e-01  9.3640473074e-01  1.2815426498e-10  1.4964177197e-07
+ 0.9364045811008692 is an approximation to a root with a tolerance: 1e-06
+
+INPUT
+Enter the function: math.log(math.pow(math.sin(x),2)+1)-0.5
+Enter the derivative of the function: 2*((sin(x))**2+1)**(-1)*sin(x)*cos(x)  
+Enter tolerance: 10e-7
+Enter x0: 0.5
+Enter the maximum number of iterations: 100
+
+
+OUTPUT
+
+Newton
+Results table:
+|i|        xi       |     f(xi)      |        E       |
+
+ 0  5.0000000000e-01 -2.9310872673e-01
+ 1  9.2839198991e-01 -4.6621570974e-03 4.2839198991e-01
+ 2  9.3636674127e-01 -2.1912619883e-05 7.9747513548e-03
+ 3  9.3640458002e-01 -4.9833909221e-10 3.7838751659e-05
+ 4  9.3640458088e-01 -1.1102230246e-16 8.6057194704e-10
+0.9364045808795621 es an approximation to a root with a tolerance: 1e-06
+
+
+Enter the function:  math.log(math.pow(math.sin(x),2)+1)-0.5
+Enter x0: 0.5
+Enter x1: 1
+Enter tolerance:  10e-7
+Enter the maximum number of iterations: 100
+
+Secant
+Results table:
+|i|        xi       |      f(xi)     |        E       |
+
+ 0  5.0000000000e-01 -2.9310872673e-01
+ 1  1.0000000000e+00 3.5366079380e-02
+ 2  9.4616622231e-01 5.6193927379e-03 5.3833777693e-02
+ 3  9.3599658079e-01 -2.3632217470e-04 1.0169641515e-02
+ 4  9.3640700238e-01 1.4022358910e-06 4.1042158553e-04
+ 5  9.3640458147e-01 3.4371649971e-10 2.4209035843e-06
+ 6  9.3640458088e-01 -4.9960036108e-16 5.9355809157e-10
+0.9364045808795624 is a root
+
+Enter function: e**x-x-1
+Enter the derivative of the function: e**x-1
+Enter the second derivative of the function: e**x
+Enter tolerance: 10e-7
+Enter x0: 1
+Enter the maximum number of iterations:100
+
+Multi Roots
+Result Table
+|i|        xi       |      f(xi)     |        E       |
+
+ 0  1.0000000000e+00 7.1828182846e-01
+ 1  -2.3421061355e-01 2.5405775475e-02 1.2342106136e+00
+ 2  -8.4582799108e-03 3.5670608014e-05 2.2575233364e-01
+ 3  -1.1890183809e-05 7.0687899978e-11 8.4463897270e-03
+ 4  -4.2185906989e-11 0.0000000000e+00 1.1890141623e-05
+-4.218590698935789e-11 is a root
+
