@@ -1,0 +1,47 @@
+
+#Search for method that can find if matrix is strictly diagonally dominant
+iterativeMethodFunction(A,b,x,iterations,tolerance,chosenMethod):
+    A=[
+        3,4,5,6
+        2,6,9,3
+        3,5,6,9
+    ]
+
+    b=[
+        6,
+        10,
+        2
+    ]
+
+    D= diagonalMatrix(A)
+    L= bottomTriangularMatrix(A)
+    U= topTriangularMatrix(A)
+
+    #Jacobi
+    if chosenMethod is 1:
+        inverseD=inverseMatrix(D)
+        Tj=inverseD*(L+U)
+        Cj=inverseD*b
+        newX=x
+        for number in iterations:
+            print Tj
+            print Cj
+            print newX
+            newX=(Tj*newX)+Cj
+            print newX
+
+
+
+
+    #Gauss-Seidel
+    if chosenMethod is 2:
+        inverseDL=inverseMarix(D-L)
+        Tg=inverseDL*U
+        Cg=inverseDL*b
+        newX=x
+        for number in iterations:
+            print Tg
+            print Cg
+            print newX
+            newX=(Tg*newX)+Cg
+            print newX
