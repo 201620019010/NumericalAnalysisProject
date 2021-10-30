@@ -22,7 +22,7 @@ def iterativeMethods(A,b,x,iterations,tolerance,chosenMethod):
             newX=(np.matmul(Tj,newX))+Cj
             print("newX------------")
             print (newX)
-        
+     #gauss-seidel   
     if chosenMethod==2:
         DL=D-L
         inverseDL=np.linalg.inv(DL)
