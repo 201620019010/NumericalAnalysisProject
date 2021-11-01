@@ -28,7 +28,7 @@ def gauss(params):
     coefficientMatrix=np.delete(arr,length-1,1)
 
     x=np.linalg.solve(coefficientMatrix,depentVariablesMatrix)
-    responseArr.append()
+    responseArr.append(x)
     return x[0]
 
             
