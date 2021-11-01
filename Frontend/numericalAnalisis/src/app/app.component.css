@@ -1,0 +1,9 @@
+#mainContainer{
+    background-color: bisque;
+    margin-top: 5vh;
+    margin-left: 15vh;
+    margin-right: 15vh;
+    height: 80vh;
+    width: 80 vh;
+    text-align: center;
+}
