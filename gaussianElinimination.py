@@ -1,8 +1,7 @@
 import numpy as np 
+import copy
 
-def gauss(params):
-    a=np.array(params[0])
-    b=np.array(params[1])
+def gauss(a,b):
     arr=np.append(a,b,1)
     arrSize=arr.shape
     height=arrSize[0]
@@ -10,8 +9,21 @@ def gauss(params):
     responseArr=[]
      
     diagonal=np.diagonal(arr)
+    while 0 in diagonal:
+        zeroIndex=diagonal.tolist().index(0)
+        rowToChange=copy.deepcopy(arr[zeroIndex,:])
+        rowToChange2=copy.deepcopy(arr[zeroIndex+1,:])
+
+        arr[zeroIndex,:]=rowToChange2
+        arr[zeroIndex+1,:]=rowToChange
+
+        diagonal=np.diagonal(arr)
+
+    #print("Stage:0--------------------------")
+    #print(arr)
 
     for i in range(0,length):
+        #print("Stage: ",i+1,"--------------------------")
         for j in range(i+1,height):
             multi=arr[j,i]/diagonal[i]
             currentRow=arr[j, :]
@@ -29,25 +41,27 @@ def gauss(params):
 
     x=np.linalg.solve(coefficientMatrix,depentVariablesMatrix)
     responseArr.append(x)
-    return x[0]
+    print (x[0])
+    return(x)
 
-            
 '''
 a=np.array(
-    [
-    [2,-1,0,3],
-    [1,0.5,3,8],
-    [0,13,-2,11],
-    [14,5,-2,3]
-    ]
+   [[-1,  1, -1,  1],
+ [ 0 , 0 , 0 , 1],
+ [27 , 9 , 3 , 1],
+ [64 ,16,  4 , 1]]
 )
 
 b=np.array(
     [
-    [1],
-    [1],
-    [1],
+    [15.5],
+    [3],
+    [8],
     [1]
     ]
 )
+
+
+gauss(a,b)
+
 '''
