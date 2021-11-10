@@ -1,0 +1,76 @@
+START
+enter a,b.
+stage <- 0
+
+L <- vector with zero elements
+for i in range length the A do
+    row <- vector with zero elements
+    for j in range length A
+        if i diferent  j do
+            row enter in the finally list 0.0
+        else do
+            row. enter in the finally list 1.0
+    L enter in the finally list Row
+U <- for i in range length A for j in range length A do
+A <- tturn into i in float , for i in j for j in A
+U[0] <- i for i in A position 0
+
+def factorizationLU(A, b, n, stage):
+    Ab <- augmentedMatrixform(A,b)                      
+    for k in range(n-1):
+        for i in range(k+1, n):
+            L[i][k] <- multiplicator <- Ab[i][k] / Ab[k][k]
+            for j in range(k, n+1):
+                Ab[i][j] <- Ab[i][j]  - (multiplicator * Ab[k][j])
+        stage <- satge + 1
+        
+        print Stage
+       
+        for i in Ab do
+            result <- ""
+            for j in i lengt Ab do
+                result <- result + j
+            print result
+        
+        print L
+        for i in L do
+            result <- ""
+            for j in i do
+                result <- result +j
+            print result
+       
+        print U
+        i <- Ab in the position stage
+        U in position stage  <- i lengt Ab 
+        for i in U do
+            result <- ""
+            for j in i:
+                result <-resutl  f"{j:.10e} "
+            print <- result
+
+    return Ab
+
+
+print "LU with simple gaussian"
+
+print "Results"
+
+print stage
+
+for i in A do
+    result <- ""
+    for j in i do
+        result <- result + j
+    print result
+Ab <- factorizationLU(A,b, len(A),stage)
+
+Lb <- augmentedMatrixform(L,b)
+z <- progressiveSustitution(Lb,len(L))
+Uz <- augmentedMatrixform(U,z)
+x <- regressiveSustitution(Uz,len(U))
+
+print "After apply progressive and regressive sustitution"
+
+print "x:""
+for i in x do
+    print i
