@@ -1,0 +1,14 @@
+function crout (A,b):
+    matrixSize=size(A)
+    L=identityMatrix
+    U=identityMatrix
+
+    for i i=0 until matrixSize-1:
+        for j =i until matrixSize:
+            L[i,j]=A[j][i]-dot(L[j,1:i-1],U[1:i-1,i])
+
+        for j=i+1 until matrixSize:
+            U[i][j]=(A[i,j]-dot(L[i,1:i-1],U[1:i-1,j]))/L[i][i]
+
+    z=forwardSubstitution(L,b)
+    x=backwardSubstitution(U,z)
