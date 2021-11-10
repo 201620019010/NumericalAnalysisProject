@@ -1,0 +1,29 @@
+#Pseudocode
+Algorithm lagrange method
+
+START
+Read xs, ys, b.
+expresion <- ""
+result <- 1
+polim <- "*"
+for i in xs do
+    for k in xs do 
+        if xs.index(i) diferent  xs.index(k): 
+            polim <- polim + (x - k)
+            result <- result * i - k  
+    polim <- polim 0:length the polim -1
+    print polim in the position:1 
+    result <- 1/result
+    result <- ys[xs.index(i)]*result
+    b add element in the finally list  <- result
+    expresion <- expresion + "("+str(result)+polim+")"+"+"
+    polim <- "*"
+    result <- 1
+expresion <- expresion legth the expresion-1]
+
+print Polynomial coefficients
+
+for i in b do
+    print i
+print Polynomial
+print expresion
