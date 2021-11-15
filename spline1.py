@@ -14,21 +14,24 @@ def linealTrace(xi,fi):
         polinome.append(psegment)
         segment = segment + 1
     return(polinome)
+def spline1(parameters):
+    # PROGRAM
+    # Start , Test Data
+    xi = eval(parameters[0])
+    fi = eval(parameters[1])
+    responseArray=[]
+    resolucion = 10 # between each pair of points
 
-# PROGRAM
-# Start , Test Data
-xi = [-1 , 0, 3, 4]
-fi = [15.5, 3, 8, 1]
-resolucion = 10 # between each pair of points
+    # PRocedure
+    n = len(xi)
+    # Obtains the polinome by segments
+    polinome = linealTrace(xi,fi)
 
-# PRocedure
-n = len(xi)
-# Obtains the polinome by segments
-polinome = linealTrace(xi,fi)
-
-# OUT
-print('Polinome by Segments: ')
-for segment in range(1,n,1):
-    print(' x = ['+str(xi[segment-1])
-          +','+str(xi[segment])+']')
-    print(str(polinome[segment-1]))
+    # OUT
+    responseArray.append('Polinome by Segments: ')
+    for segment in range(1,n,1):
+        responseArray.append(' x = ['+str(xi[segment-1])
+            +','+str(xi[segment])+']')
+        
+        responseArray.append(str(polinome[segment-1]))
+    return responseArray

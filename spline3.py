@@ -57,17 +57,20 @@ def naturalCubicTracerl(xi,yi):
 
 # Test Program
 # Test Data
-xi = np.array([-1 , 0, 3, 4])
-fi = np.array([15.5, 3, 8, 1])
-resolucion = 10 # between each pair of points
+def spline3(parameters):
+    xi = np.array(eval(parameters[0]))
+    fi = np.array(eval(parameters[1]))
+    resolucion = 10 # between each pair of points
+    responseArray=[]
+    # Procedure
+    n = len(xi)
+    # obtains the polinome by traces
+    polinomio = naturalCubicTracerl(xi,fi)
 
-# Procedure
-n = len(xi)
-# obtains the polinome by traces
-polinomio = naturalCubicTracerl(xi,fi)
-
-# out
-print('Polinome by Traces: ')
-for tramo in range(1,n,1):
-    print(' x = ['+str(xi[tramo-1])+','+str(xi[tramo])+']')
-    print(str(polinomio[tramo-1]))
+    # out
+    responseArray.append('Polinome by Traces: ')
+    for tramo in range(1,n,1):
+        responseArray.append(' x = ['+str(xi[tramo-1])+','+str(xi[tramo])+']')
+        responseArray.append(str(polinomio[tramo-1]))
+    
+    return responseArray

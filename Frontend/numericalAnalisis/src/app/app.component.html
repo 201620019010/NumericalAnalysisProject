@@ -6,7 +6,7 @@
         <br>
         <h5>Select Method</h5>
         <select  [(ngModel)]="selectedOption" name="cars" id="cars">
-          <option *ngFor="let parameter of parameters" value={{parameter.Index}}>{{parameter.key}}</option>
+          <option *ngFor="let parameter of parameters" value={{parameter.Index}}>{{parameter.Index}}) {{parameter.key}}</option>
         
         </select>
         <br>
@@ -17,21 +17,37 @@
       
 
     </div>
-
+    <br>
+    <br>
     <div class="row" id="parametros">
       <div class="col">
-        <form>
-
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Parameters</label>
-            <textarea *ngFor="let parameter of selectedMethod.parameters" value={{parameter.Index}} class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        
+        <form #chooseParameters="ngForm"  (ngSubmit)="calculate(chooseParameters.value)">
+          <div id='title'>
+            <h5>Please Enter the Method Parameters</h5>
           </div>
+          <hr/>
+          <div class="overflow-auto" id="form">
+            <div  *ngFor="let parameter of selectedMethod.parameters | keyvalue: keepOrder" class="form-group" >
+              <label  for="exampleInputEmail1">{{parameter.key}}</label>
+              <input name="{{parameter.key}}" ngModel type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a : {{parameter.value}}">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Calculate</button>
         </form>
       </div>
-
     </div>
 
     <div class="row">
+      <div class="col">
+        <div id='title'>
+          <h5>Result</h5>
+        </div>
+        <hr/> 
+        <div class="overflow-auto" id=response>
+          <h6 *ngFor="let line of responseObj" >{{line}}</h6>
+        </div>
+      </div>
 
     </div>
 

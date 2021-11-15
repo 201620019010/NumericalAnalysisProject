@@ -8,8 +8,11 @@ def crout(A,b):
     L=np.identity(matrixSize[0])
     U=np.identity(matrixSize[0])
 
+
     for i in range(matrixSize[0]-1):
         print("Stage ",i+1,"-------------------")
+        dotL=np.zeros(i)
+        dotU=np.zeros(i)
         for j in range(i,matrixSize[0]):
             '''
             sumation=0
@@ -18,7 +21,13 @@ def crout(A,b):
             
             L[j][i]=A[j][i]-sumation
             '''
-            L[j][i]=A[j][i]-np.dot(L[j,1:i-1],U[1:i-1,i])
+            dotL=L[j,1:i-1]
+            dotU=U[1:i-1,i]
+            print(dotL)
+            print(dotU)
+            dotLU=np.dot(dotL,dotU)
+            L[j][i]=A[j][i]-dotLU
+            
         print (L)
 
         for j in range(i+1,matrixSize[0]):

@@ -3,7 +3,22 @@
     margin-top: 5vh;
     margin-left: 15vh;
     margin-right: 15vh;
-    height: 80vh;
+    height: 90vh;
     width: 80 vh;
     text-align: center;
+}
+
+#title{
+    text-align: left;
+}
+
+hr{
+    border-top: 0.3vh solid rgba(236, 4, 4, 0.1);
+}
+#response{
+    height: 25vh;
+}
+
+#form{
+    height: 20vh;
 }

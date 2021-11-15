@@ -8,7 +8,8 @@ export class ApiConnectionService {
 
   constructor(private http:HttpClient) { }
 
-  getParameters(){
+  runMethod(apiObj:any){
+    return this.http.post("http://127.0.0.1:5000/callMethod",apiObj)
     
   }
 }

@@ -2,9 +2,11 @@ from logging import debug
 from flask import Flask, request
 from flask_restful import Api,Resource,request
 from methodHandler import getMethod
+from flask_cors import CORS
 
 app= Flask(__name__)
 api=Api(app)
+CORS(app)
 
 class CallNumericalAnalisisMethods(Resource):
     def get(self):
