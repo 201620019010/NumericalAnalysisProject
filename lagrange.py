@@ -1,37 +1,42 @@
-xs = eval(input("Enter the x: "))
-ys = eval(input("Enter the y: "))
-b = []
+import numpy as np
 
-print("Lagrange")
-print()
-print("Results:")
-print()
-print("Interpolating polynomials:")
-print()
-expression = ""
-result = 1
-polim = "*"
-for i in xs:
-    for k in xs:
-        if xs.index(i) != xs.index(k): 
-            polim += (f"(x - {k})*")
-            result *= i - k  
-    polim = polim[0:len(polim)-1]
-    print(polim[1:])
-    result = 1/result
-    result = ys[xs.index(i)]*result
-    b.append(result)
-    expression += "("+str(result)+polim+")"+"+"
-    polim = "*"
-    result = 1
-expression = expression[0:len(expression)-1]
+def lagrange(parameters):
+    x=np.array(eval(parameters[0]))
+    y=np.array(eval(parameters[1]))
 
-print()
-print("Polynomial coefficients:")
-print()
-for i in b:
-    print(i)
-print()
-print("Polynomial:")
-print()
-print(expression) 
+    n=np.size(x)
+
+    resultMatrix=[]
+    resultMatrix.append("Lagrange Method------------------------------")
+    polinome="p(x)= "
+
+    for i in range (n):
+        topPart=""
+        bottomPart=1
+        for j in range(n):
+            if j==i:
+                continue
+            else:
+                topPart=topPart+"(x-{})".format(x[j])
+                bottomPart=bottomPart*(x[i]-(x[j]))
+        li="L{}: {}/{}".format(i,topPart,bottomPart)
+        polinome=polinome+"+{}(L{})".format(y[i],i)
+        resultMatrix.append(li)
+
+    resultMatrix.append("Lagrange Polinome------------------------")
+    resultMatrix.append(polinome)
+    return resultMatrix
+''''
+x="[-1,0,3,4]"
+y="[15.5,3,8,1]"
+
+result=lagrange([x,y])
+for item in result:
+    print(item)
+'''
+
+    
+
+    
+
+

@@ -196,7 +196,7 @@ export const parameters =[
     },
     {
         "Index":20,
-        "key":"spline1",
+        "key":"lagrange",
         "parameters":{
             "x":"table",
             "y":"table",
@@ -204,7 +204,7 @@ export const parameters =[
     },
     {
         "Index":21,
-        "key":"spline2",
+        "key":"spline1",
         "parameters":{
             "x":"table",
             "y":"table",
@@ -212,6 +212,14 @@ export const parameters =[
     },
     {
         "Index":22,
+        "key":"spline2",
+        "parameters":{
+            "x":"table",
+            "y":"table",
+        }
+    },
+    {
+        "Index":23,
         "key":"spline3",
         "parameters":{
             "x":"table",

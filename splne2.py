@@ -1,5 +1,5 @@
 import sympy
-import totalPivoting
+from gaussPivTotal import eliminacion_gaussiana_pivoteo
 x = sympy.Symbol('x')
 
 xn =[-1,0,3,4]
