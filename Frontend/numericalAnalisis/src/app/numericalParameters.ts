@@ -226,6 +226,17 @@ export const parameters =[
             "y":"table",
         }
     },
+
+    {
+        "Index":24,
+        "key":"Grapher",
+        "parameters":{
+            "f":"function",
+            "a":"lower interval",
+            "b":"upper interval"
+        }
+    },
+
     
   
     

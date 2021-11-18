@@ -11,10 +11,11 @@ export class AppComponent {
   title = 'numericalAnalisis';
   parameters=parameters.parameters;
   selectedOption=0
-  isMatrix=false
+  graph=false
   selectedMethod:any
   parameterList: string[]=[]
   responseObj: any
+
 
   constructor(private apiConnectionService:ApiConnectionService) { }
 
@@ -29,10 +30,14 @@ export class AppComponent {
        console.log(item)
      }
 
+     if (this.selectedMethod.key=="Grapher"){
+      this.graph=true
+    }
+
   }
 
   calculate(data:any){
-    console.log(this.selectedMethod)
+
 
     for (var key in data){
       var param=data[key]
@@ -50,7 +55,13 @@ export class AppComponent {
     responseObj.subscribe(x=>{
       this.responseObj=x
     })
-    console.log(responseObj)
+
+    if (this.selectedMethod.key=="Grapher"){
+      this.responseObj=[this.responseObj]
+      console.log(this.responseObj)
+
+    }
+
     this.parameterList=[]
 
   }

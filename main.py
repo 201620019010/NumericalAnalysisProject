@@ -20,6 +20,7 @@ class CallNumericalAnalisisMethods(Resource):
 
 
 
+
 api.add_resource(CallNumericalAnalisisMethods,"/callMethod")
 
 if __name__ == "__main__":

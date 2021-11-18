@@ -19,6 +19,7 @@ from crout import crout
 from cholesky import cholesky
 from spline1 import spline1
 from spline3 import spline3
+from graph import graphFunction
 
 
 numericalMethods={
@@ -42,7 +43,8 @@ numericalMethods={
     "doolittle":doolittle,
     "cholesky":cholesky,
     "spline1":spline1,
-    "spline3":spline3
+    "spline3":spline3,
+    "Grapher":graphFunction
 
 }
 

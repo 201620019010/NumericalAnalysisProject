@@ -1,11 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+import base64
+from PIL import Image
+from io import BytesIO
 
 
 def graphFunction(parameters):
     # 100 linearly spaced numbers
-    x = np.linspace(-5,5,100)
+    x = np.linspace(eval(parameters[1]),eval(parameters[2]),100)
 
     # the function, which is y = x^2 here
     f= eval("lambda x:"+parameters[0])
@@ -32,5 +35,18 @@ def graphFunction(parameters):
     # show the plot
     plt.savefig('graph.png')
 
+    data=""
+    with open('graph.png', "rb") as image_file:
+        data = base64.b64encode(image_file.read())
+    
+    base64String=str(data)
+    return base64String[2:len(base64String)-1]
+    
+
+
+
+
 f="math.log((math.sin(x)**2)+1)-(1/2)"
-graphFunction([f])
+
+graphFunction([f,"-5","5"])
+

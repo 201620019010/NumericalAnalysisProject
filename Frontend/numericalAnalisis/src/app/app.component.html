@@ -44,8 +44,11 @@
           <h5>Result</h5>
         </div>
         <hr/> 
-        <div class="overflow-auto" id=response>
+        <div *ngIf="!graph" class="overflow-auto" id=response>
           <h6 *ngFor="let line of responseObj" >{{line}}</h6>
+        </div>
+        <div *ngIf="graph">
+          <img id="graph" src="data:image/png;base64,{{responseObj}}" alt="Red dot" />
         </div>
       </div>
 
