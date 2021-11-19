@@ -8,7 +8,7 @@ def gauss(parameters):
     try:
         a=np.array(eval(parameters[0]))
         b=np.array(eval(parameters[1]))
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
 
     arr=np.append(a,b,1)

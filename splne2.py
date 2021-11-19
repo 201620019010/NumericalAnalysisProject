@@ -1,5 +1,5 @@
 import sympy
-import totalPivoting
+
 x = sympy.Symbol('x')
 '''
 xn =[-1,0,3,4]
@@ -20,8 +20,8 @@ def quadratic(parameters):
     try:
         xn=parameters[0]
         fxn=parameters[1]
-    except ValueError:
-        return("Wrong Parameters Entered")
+    except Exception as e:
+        return ["Wrong Parameters Entered"]
     result=[]
     createInequality(xn,fxn) 
     superMatrix = [[0 for x in range(3*len(inequality)+1)] for y in range(3*len(inequality))] 
@@ -29,6 +29,7 @@ def quadratic(parameters):
         result.append(x)
 
     return result
+    '''
     n = len(superMatrix)
     j = 0
     z = 0
@@ -66,7 +67,7 @@ def quadratic(parameters):
         print(func)
         j += 3
 
-'''
+
 xn =[-1,0,3,4]
 fxn =[15.5,3,8,1]
 

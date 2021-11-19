@@ -4,7 +4,7 @@ def lagrange(parameters):
     try:
         x=np.array(eval(parameters[0]))
         y=np.array(eval(parameters[1]))
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
 
     n=np.size(x)

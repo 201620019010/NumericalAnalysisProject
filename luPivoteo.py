@@ -18,8 +18,8 @@ def pivot_matrix(M):
 def lu_decomposition(parameters):
     try:
         A=parameters[0]
-    except ValueError:
-        return("Wrong Parameters Entered")
+    except Exception as e:
+        return ["Wrong Parameters Entered"]
     resultMatrix=[]
     n = len(A)
     L = [[0.0] * n for i in range(n)]

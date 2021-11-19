@@ -8,7 +8,7 @@ def newton(parameters):
         tol = float(parameters[2])
         x0 = float(parameters[3])
         niter = float(parameters[4])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
     resultMatrix=[]
 

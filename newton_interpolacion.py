@@ -10,7 +10,7 @@ def newtonInterpolation(parameters):
     try:
         x=eval(parameters[0])
         y=eval(parameters[1])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
     n=np.size(x)
 

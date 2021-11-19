@@ -61,7 +61,7 @@ def spline3(parameters):
     try:
         xi = np.array(eval(parameters[0]))
         fi = np.array(eval(parameters[1]))
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
     resolucion = 10 # between each pair of points
     responseArray=[]

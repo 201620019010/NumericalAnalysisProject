@@ -9,7 +9,7 @@ def multipleRoots(parameters):
         tol = float(parameters[3])
         x0 = float(parameters[4])
         niter = float(parameters[5])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
 
     resultMatrix=[]

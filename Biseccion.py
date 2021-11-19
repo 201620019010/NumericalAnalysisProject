@@ -15,7 +15,7 @@ def bisection(parameters):
         b=eval(parameters[2])
         ite=eval(parameters[4])
         t=eval(parameters[3])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
 
     print(f(a))

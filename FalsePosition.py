@@ -8,7 +8,7 @@ def falsePosition(parameters):
         xs = float(parameters[2])
         tol = float(parameters[3])
         niter = float(parameters[4])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
     resultMatrix=[]
 

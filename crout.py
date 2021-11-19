@@ -8,7 +8,7 @@ def crout(parameters):
     try:
         A=eval(parameters[0])
         b=eval(parameters[1])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
     #a=matlab.double(A)
     #c=matlab.double(b)

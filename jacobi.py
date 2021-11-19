@@ -10,7 +10,7 @@ def jacobi(parameters):
         Tol = eval(parameters[3])
         deci = str(int(str(Tol)[3])+2)
         Nmax = eval(parameters[4])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
     resultMatrix=[]
 

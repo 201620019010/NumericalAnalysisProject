@@ -15,7 +15,7 @@ x = np.array([0.5,1,3,5])
 def vandermonde(parameters):
     try:
         x=np.array(eval(parameters[0]))
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
     resultMatrix=[]
 

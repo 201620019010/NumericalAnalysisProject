@@ -20,7 +20,7 @@ def spline1(parameters):
     try:
         xi = eval(parameters[0])
         fi = eval(parameters[1])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
     responseArray=[]
     resolucion = 10 # between each pair of points

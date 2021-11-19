@@ -8,7 +8,7 @@ def sor(parameters):
         Tol = eval(parameters[4])
         w = eval(parameters[3])
         Nmax = eval(parameters[5])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
     resultMatrix=[]
 

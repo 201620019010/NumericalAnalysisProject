@@ -13,7 +13,7 @@ def incrementalSearch(parameters):
         x0 = float(parameters[1])
         delta = float(parameters[2])
         niter = float(parameters[3])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
 
     print("""

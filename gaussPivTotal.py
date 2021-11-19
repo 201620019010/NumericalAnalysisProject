@@ -33,7 +33,7 @@ def eliminacion_gaussiana_pivoteo(parameters):
     try:
         A=eval(parameters[0])
         b=eval(parameters[1])
-    except ValueError:
+    except Exception as e:
         return ["Wrong Parameters Entered"]
     responseArr=[]
     n = len(A)
