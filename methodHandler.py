@@ -19,7 +19,9 @@ from crout import crout
 from cholesky import cholesky
 from spline1 import spline1
 from spline3 import spline3
+from splne2 import quadratic
 from graph import graphFunction
+from luPivoteo import lu_decomposition
 from functionEvaluator import functionEvaluator
 
 
@@ -44,9 +46,11 @@ numericalMethods={
     "doolittle":doolittle,
     "cholesky":cholesky,
     "spline1":spline1,
+    "spline2":quadratic,
     "spline3":spline3,
     "Grapher":graphFunction,
-    "functionEvaluator":functionEvaluator
+    "functionEvaluator":functionEvaluator,
+    "luParcial":lu_decomposition
 
 }
 
