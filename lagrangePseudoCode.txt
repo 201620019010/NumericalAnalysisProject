@@ -1,0 +1,10 @@
+function x,y
+    for i=0 to n
+        for j=0 to n
+            if j==i:
+                next loop
+            else:
+                topPart=topPart+(x-x(j))
+                bottomPart=bottomPart*(x(i)-(x(j)))
+        li=topPart/bottomPart
+        polinome=y(i)*L(i)
