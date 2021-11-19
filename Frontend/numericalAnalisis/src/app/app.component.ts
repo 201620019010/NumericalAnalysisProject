@@ -15,6 +15,7 @@ export class AppComponent {
   selectedMethod:any
   parameterList: string[]=[]
   responseObj: any
+  Help=false
 
 
   constructor(private apiConnectionService:ApiConnectionService) { }
@@ -37,7 +38,7 @@ export class AppComponent {
   }
 
   calculate(data:any){
-
+    
 
     for (var key in data){
       var param=data[key]
@@ -64,6 +65,15 @@ export class AppComponent {
 
     this.parameterList=[]
 
+  }
+
+  help(){
+    if (this.Help==false){
+      this.Help=true
+    }
+    else{
+      this.Help=false
+    }
   }
   keepOrder = (a:any, b:any) => {
     return a;

@@ -1,10 +1,15 @@
 import numpy as np 
 import copy
 
+from numpy.core.fromnumeric import diagonal
+
 
 def gauss(parameters):
-    a=np.array(eval(parameters[0]))
-    b=np.array(eval(parameters[1]))
+    try:
+        a=np.array(eval(parameters[0]))
+        b=np.array(eval(parameters[1]))
+    except ValueError:
+        return ["Wrong Parameters Entered"]
 
     arr=np.append(a,b,1)
     arrSize=arr.shape
@@ -13,18 +18,11 @@ def gauss(parameters):
     responseArr=[]
      
     diagonal=np.diagonal(arr)
-    while 0 in diagonal:
-        zeroIndex=diagonal.tolist().index(0)
-        rowToChange=copy.deepcopy(arr[zeroIndex,:])
-        rowToChange2=copy.deepcopy(arr[zeroIndex+1,:])
-
-        arr[zeroIndex,:]=rowToChange2
-        arr[zeroIndex+1,:]=rowToChange
-
-        diagonal=np.diagonal(arr)
 
     responseArr.append("Stage:0--------------------------")
-    responseArr.append(np.array2string(arr))
+    for i in arr:
+        responseArr.append(np.array2string(i))
+    
 
 
     for i in range(0,length-2):
@@ -37,7 +35,8 @@ def gauss(parameters):
             row=currentRow-(multi*previousRow)
             #rermplazamos la fila
             arr[j, :]=row
-        responseArr.append(np.array2string(arr))
+        for x in arr: 
+            responseArr.append(np.array2string(x))
 
     depentVariablesMatrix=arr[:,length-1]
     coefficientMatrix=np.delete(arr,length-1,1)

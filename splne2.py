@@ -1,23 +1,25 @@
 import sympy
-from gaussPivTotal import eliminacion_gaussiana_pivoteo
+import totalPivoting
 x = sympy.Symbol('x')
-
+'''
 xn =[-1,0,3,4]
 fxn =[15.5,3,8,1]
-
+'''
 inequality =[]
 functions =[]
 result =[]
 des = []
 
-def createInequality():
+def createInequality(xn,fxn):
     for i in range(0,len(xn)-1):
         if(i < len(xn)):
             inequality.append(((xn[i],fxn[i]),(xn[i+1],fxn[i+1])))
     
-createInequality() 
     
-def quadratic():
+def quadratic(parameters):
+    xn=parameters[0]
+    fxn=parameters[1]
+    createInequality(xn,fxn) 
     superMatrix = [[0 for x in range(3*len(inequality)+1)] for y in range(3*len(inequality))] 
     n = len(superMatrix)
     j = 0
@@ -55,4 +57,9 @@ def quadratic():
         print(str(inequality[i][0][0])+" <= x <= "+str(inequality[i][1][0]))
         print(func)
         j += 3
-quadratic()
+
+xn =[-1,0,3,4]
+fxn =[15.5,3,8,1]
+
+
+quadratic([xn,fxn])

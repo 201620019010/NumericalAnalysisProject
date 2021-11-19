@@ -27,13 +27,19 @@
             <h5>Please Enter the Method Parameters</h5>
           </div>
           <hr/>
-          <div class="overflow-auto" id="form">
+          <div  *ngIf="!Help" class="overflow-auto" id="form">
             <div  *ngFor="let parameter of selectedMethod.parameters | keyvalue: keepOrder" class="form-group" >
               <label  for="exampleInputEmail1">{{parameter.key}}</label>
               <input name="{{parameter.key}}" ngModel type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a : {{parameter.value}}">
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Calculate</button>
+          <div *ngIf="Help">
+            <p *ngFor="let help of selectedMethod.Helps">{{help}}</p>
+          </div>
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary btn-space">Calculate</button>
+            <button (click)="help()" type="input" class="btn btn-primary btn-space">Help</button>
+          </div>
         </form>
       </div>
     </div>

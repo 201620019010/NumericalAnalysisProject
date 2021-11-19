@@ -17,8 +17,11 @@ def linealTrace(xi,fi):
 def spline1(parameters):
     # PROGRAM
     # Start , Test Data
-    xi = eval(parameters[0])
-    fi = eval(parameters[1])
+    try:
+        xi = eval(parameters[0])
+        fi = eval(parameters[1])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     responseArray=[]
     resolucion = 10 # between each pair of points
 

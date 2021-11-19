@@ -1,11 +1,15 @@
 import numpy as np 
 import copy
+np.set_printoptions(suppress=True),
 
 def parcialPivoting(parameters):
+    try:
+        a=np.array(eval(parameters[0]))
+        b=np.array(eval(parameters[1]))
+        arr=np.append(a,b,1)
+    except ValueError:
+        return ["Wrong Parameters Entered"]
 
-    a=np.array(eval(parameters[0]))
-    b=np.array(eval(parameters[1]))
-    arr=np.append(a,b,1)
     arrSize=arr.shape
     height=arrSize[0]
     length=arrSize[1]
@@ -15,7 +19,8 @@ def parcialPivoting(parameters):
     diagonal=np.diagonal(arr)
 
     responseArr.append("Stage:0--------------------------")
-    responseArr.append(np.array2string(arr))
+    for i in arr:
+        responseArr.append(np.array2string(i))
 
     for i in range(0,length-2):
         ##################Pivoteo############################################
@@ -51,7 +56,8 @@ def parcialPivoting(parameters):
             row=currentRow-(multi*previousRow)
             #rermplazamos la fila
             arr[j, :]=row
-        responseArr.append(np.array2string(arr))
+        for x in arr: 
+            responseArr.append(np.array2string(x))
         #print(arr)
     depentVariablesMatrix=arr[:,length-1]
     coefficientMatrix=np.delete(arr,length-1,1)

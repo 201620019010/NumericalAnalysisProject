@@ -7,12 +7,15 @@ import numpy as np
 
 # Fixed point method implementation
 def Punto_Fijo(parameters):
-    x0 = float(parameters[2])
-    tol = float(parameters[3])
-    resultMatrix=[]
-    N=eval(parameters[4])
-    f1=eval("lambda x:"+parameters[0])
-    g=eval("lambda x:"+parameters[1])
+    try:
+        x0 = float(parameters[2])
+        tol = float(parameters[3])
+        resultMatrix=[]
+        N=eval(parameters[4])
+        f1=eval("lambda x:"+parameters[0])
+        g=eval("lambda x:"+parameters[1])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     resultMatrix.append('\n\n*** Looping with fixed point ***')
 
     step = 1

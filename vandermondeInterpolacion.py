@@ -13,16 +13,21 @@ y = np.array(
 x = np.array([0.5,1,3,5])
 '''
 def vandermonde(parameters):
-    x=np.array(eval(parameters[0]))
+    try:
+        x=np.array(eval(parameters[0]))
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     resultMatrix=[]
 
     resultMatrix.append("Vandermonde Matrix-------------------")
-    resultMatrix.append(np.array2string(np.vander(x)))
+    vander=np.vander(x)
+    for i in vander:
+        resultMatrix.append(np.array2string(i))
 
     resultMatrix.append("Polinome Coefficients----------------")
 
 
-    vandermonde=np.array2string(np.vander(x),separator=",")
+    vandermonde=np.array2string(vander,separator=",")
 
     polinome=gauss([vandermonde,parameters[1]])
     length=len(polinome)

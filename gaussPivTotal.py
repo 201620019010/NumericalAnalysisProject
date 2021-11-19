@@ -30,8 +30,11 @@ def pivoteo_total(Ab,k,marcas,n):
     return Ab,marcas
 
 def eliminacion_gaussiana_pivoteo(parameters):
-    A=eval(parameters[0])
-    b=eval(parameters[1])
+    try:
+        A=eval(parameters[0])
+        b=eval(parameters[1])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     responseArr=[]
     n = len(A)
     marcas = npy.arange(n)
@@ -49,7 +52,8 @@ def eliminacion_gaussiana_pivoteo(parameters):
             for j in range(k,n+1):
                 Ab[i][j] = Ab[i][j] - multiplicador * Ab[k][j]
         
-        responseArr.append(npy.array2string(npy.array(Ab)))
+        for x in Ab:
+            responseArr.append(npy.array2string(npy.array(x)))
 
     Ab=npy.array(Ab)
     depentVariablesMatrix=Ab[:,n-1]

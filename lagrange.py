@@ -1,8 +1,11 @@
 import numpy as np
 
 def lagrange(parameters):
-    x=np.array(eval(parameters[0]))
-    y=np.array(eval(parameters[1]))
+    try:
+        x=np.array(eval(parameters[0]))
+        y=np.array(eval(parameters[1]))
+    except ValueError:
+        return ["Wrong Parameters Entered"]
 
     n=np.size(x)
 

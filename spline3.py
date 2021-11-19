@@ -58,8 +58,11 @@ def naturalCubicTracerl(xi,yi):
 # Test Program
 # Test Data
 def spline3(parameters):
-    xi = np.array(eval(parameters[0]))
-    fi = np.array(eval(parameters[1]))
+    try:
+        xi = np.array(eval(parameters[0]))
+        fi = np.array(eval(parameters[1]))
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     resolucion = 10 # between each pair of points
     responseArray=[]
     # Procedure

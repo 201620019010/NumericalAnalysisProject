@@ -9,11 +9,14 @@ def bisection(parameters):
     #formato de la funcion de entrada para que python la entienda
 
     resultMatrix=[]
-    f=eval("lambda x:"+parameters[0])
-    a=eval(parameters[1])
-    b=eval(parameters[2])
-    ite=eval(parameters[4])
-    t=eval(parameters[3])
+    try:
+        f=eval("lambda x:"+parameters[0])
+        a=eval(parameters[1])
+        b=eval(parameters[2])
+        ite=eval(parameters[4])
+        t=eval(parameters[3])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
 
     print(f(a))
     print(f(b))

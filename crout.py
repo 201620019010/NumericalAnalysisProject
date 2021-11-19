@@ -5,9 +5,11 @@ import numpy as np
 
 def crout(parameters):
     #mlengine=matlab.engine.start_matlab()
-
-    A=eval(parameters[0])
-    b=eval(parameters[1])
+    try:
+        A=eval(parameters[0])
+        b=eval(parameters[1])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     #a=matlab.double(A)
     #c=matlab.double(b)
     resultMatrix=[]
@@ -19,7 +21,8 @@ def crout(parameters):
     L=np.identity(matrixSize[0])
     U=np.identity(matrixSize[0])
     resultMatrix.append("Stage 0 --------------------------")
-    resultMatrix.append(np.array2string(A))
+    for x in A:
+        resultMatrix.append(np.array2string(x))
 
 
     for i in range(matrixSize[0]-1):
@@ -43,9 +46,9 @@ def crout(parameters):
             dotLU=np.dot(dotL,dotU)
             L[j][i]=A[j][i]-dotLU
         
-            
-            
-        resultMatrix.append(np.array2string(L))
+        resultMatrix.append("L")  
+        for x in L:
+            resultMatrix.append(np.array2string(x)) 
 
         for j in range(i+1,matrixSize[0]):
             '''
@@ -57,7 +60,11 @@ def crout(parameters):
             '''
 
             U[i][j]=(A[i][j]-np.dot(L[i,1:i-1],U[1:i-1,j]))/L[i][i]
-        resultMatrix.append(np.array2string(U))
+
+        resultMatrix.append("U") 
+        for x in U:
+            resultMatrix.append(np.array2string(x))
+
     return resultMatrix
 
 '''

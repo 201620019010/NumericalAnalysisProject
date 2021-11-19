@@ -2,12 +2,15 @@ import math
 from math import *
 
 def multipleRoots(parameters):
-    f = eval("lambda x: "+parameters[0])
-    df = eval("lambda x: "+parameters[1])
-    df2 = eval("lambda x: "+parameters[2])
-    tol = float(parameters[3])
-    x0 = float(parameters[4])
-    niter = float(parameters[5])
+    try:
+        f = eval("lambda x: "+parameters[0])
+        df = eval("lambda x: "+parameters[1])
+        df2 = eval("lambda x: "+parameters[2])
+        tol = float(parameters[3])
+        x0 = float(parameters[4])
+        niter = float(parameters[5])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
 
     resultMatrix=[]
 

@@ -2,12 +2,15 @@ from math import sqrt
 import numpy as np
 
 def seidel(parameters):
-    A = eval(parameters[0])
-    b = eval(parameters[1])
-    x0 = eval(parameters[2])
-    Tol = eval(parameters[3])
-    deci = str(int(str(Tol)[3])+2)
-    Nmax = eval(parameters[4])
+    try:
+        A = eval(parameters[0])
+        b = eval(parameters[1])
+        x0 = eval(parameters[2])
+        Tol = eval(parameters[3])
+        deci = str(int(str(Tol)[3])+2)
+        Nmax = eval(parameters[4])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     resultMatrix=[]
 
     resultMatrix.append("Seidel")

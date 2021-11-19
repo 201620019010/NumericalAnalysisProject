@@ -1,12 +1,15 @@
 from math import sqrt
 import numpy as np
 def sor(parameters):
-    A = eval(parameters[0])
-    b = eval(parameters[1])
-    x0 = eval(parameters[2])
-    Tol = eval(parameters[4])
-    w = eval(parameters[3])
-    Nmax = eval(parameters[5])
+    try:
+        A = eval(parameters[0])
+        b = eval(parameters[1])
+        x0 = eval(parameters[2])
+        Tol = eval(parameters[4])
+        w = eval(parameters[3])
+        Nmax = eval(parameters[5])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     resultMatrix=[]
 
     resultMatrix.append("Sor")

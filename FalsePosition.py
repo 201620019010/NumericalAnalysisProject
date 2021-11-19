@@ -2,11 +2,14 @@ import math
 from math import *
 
 def falsePosition(parameters):
-    f= eval("lambda x:"+parameters[0])
-    xi = float(parameters[1])
-    xs = float(parameters[2])
-    tol = float(parameters[3])
-    niter = float(parameters[4])
+    try:
+        f= eval("lambda x:"+parameters[0])
+        xi = float(parameters[1])
+        xs = float(parameters[2])
+        tol = float(parameters[3])
+        niter = float(parameters[4])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     resultMatrix=[]
 
 

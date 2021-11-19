@@ -8,10 +8,13 @@ print("If your function has a power of use math.pow(value,power)")
 
 def incrementalSearch(parameters):
     resultMatrix=[]
-    f = eval("lambda x:"+parameters[0])
-    x0 = float(parameters[1])
-    delta = float(parameters[2])
-    niter = float(parameters[3])
+    try:
+        f = eval("lambda x:"+parameters[0])
+        x0 = float(parameters[1])
+        delta = float(parameters[2])
+        niter = float(parameters[3])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
 
     print("""
     Incremental search results:

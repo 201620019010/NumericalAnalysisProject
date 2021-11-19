@@ -2,11 +2,14 @@ import math
 from math import *
 
 def newton(parameters):
-    f = eval("lambda x:"+parameters[0])
-    df = eval("lambda x:"+parameters[1])
-    tol = float(parameters[2])
-    x0 = float(parameters[3])
-    niter = float(parameters[4])
+    try:
+        f = eval("lambda x:"+parameters[0])
+        df = eval("lambda x:"+parameters[1])
+        tol = float(parameters[2])
+        x0 = float(parameters[3])
+        niter = float(parameters[4])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     resultMatrix=[]
 
 

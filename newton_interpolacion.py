@@ -7,8 +7,11 @@ import math
 def newtonInterpolation(parameters):
     j=0
     temp=0
-    x=eval(parameters[0])
-    y=eval(parameters[1])
+    try:
+        x=eval(parameters[0])
+        y=eval(parameters[1])
+    except ValueError:
+        return ["Wrong Parameters Entered"]
     n=np.size(x)
 
     tabla = np.zeros((n+1,n+1))
