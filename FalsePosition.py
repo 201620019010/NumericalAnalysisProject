@@ -10,6 +10,14 @@ def falsePosition(parameters):
         niter = float(parameters[4])
     except Exception as e:
         return ["Wrong Parameters Entered"]
+
+    if tol<0:
+        return ["Tolerance can not be negative"]
+    if niter<0:
+        return ["Iterations can not be negative"]
+    if (xi>xs):
+        return ["a must be less than b"]
+
     resultMatrix=[]
 
 

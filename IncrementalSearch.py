@@ -16,6 +16,9 @@ def incrementalSearch(parameters):
     except Exception as e:
         return ["Wrong Parameters Entered"]
 
+    if delta<0:
+        return ["Delta cant be negative"]
+
     print("""
     Incremental search results:
     """)

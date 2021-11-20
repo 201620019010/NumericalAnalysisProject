@@ -11,13 +11,21 @@ def gauss(parameters):
     except Exception as e:
         return ["Wrong Parameters Entered"]
 
-    arr=np.append(a,b,1)
+    try:
+        arr=np.append(a,b,1)
+    except ValueError:
+        return ["Matrixes Have different size method fail"]
+        
     arrSize=arr.shape
     height=arrSize[0]
     length=arrSize[1]
     responseArr=[]
+
      
     diagonal=np.diagonal(arr)
+
+    if 0 in diagonal:
+        return ["There is a zero in the diagonal cant run method"]
 
     responseArr.append("Stage:0--------------------------")
     for i in arr:
