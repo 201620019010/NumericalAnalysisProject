@@ -10,6 +10,10 @@ def newton(parameters):
         niter = float(parameters[4])
     except Exception as e:
         return ["Wrong Parameters Entered"]
+    if tol < 0:
+        return ["Tolerance can not be negative."] 
+    if niter < 0:
+        return ["Iterations can not be negative."]
     resultMatrix=[]
 
 
@@ -19,6 +23,8 @@ def newton(parameters):
 
     fx = f(x0)
     dfx = df(x0)
+    if dfx == 0:
+        return "there is a change in the signe in the derivate, therefore there are no roots at f(X)=0, cant run the method"
 
     count = 0
     err = tol + 1
