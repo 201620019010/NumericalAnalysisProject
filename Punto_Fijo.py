@@ -16,6 +16,11 @@ def Punto_Fijo(parameters):
         g=eval("lambda x:"+parameters[1])
     except Exception as e:
         return ["Wrong Parameters Entered"]
+    if tol<0:
+        return ["Tolerance can not be negative"]
+    if niter<0:
+        return ["Iterations can not be negative"]
+    
     resultMatrix.append('\n\n*** Looping with fixed point ***')
 
     step = 1
