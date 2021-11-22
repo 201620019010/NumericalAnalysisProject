@@ -10,6 +10,11 @@ def secantMethod(parameters):
         niter = float(parameters[4])
     except Exception as e:
         return ["Wrong Parameters Entered"]
+    if tol < 0:
+        return ["Tolerance can not be negative."] 
+    if niter < 0:
+        return ["Iterations can not be negative."]
+
     resultMatrix=[]
 
 
@@ -40,6 +45,8 @@ def secantMethod(parameters):
                     resultMatrix.append(f" {cont} {x0:.10e} {fx0:.10e} {err_aux:.10e}")
             err_aux = err
             x2 = x1 - fx1 * (x1 - x0)/den
+            if den == 0:
+                return "there is a division by zero"
             err = abs(x2 - x1)
             x0 = x1
             fx0 = fx1
