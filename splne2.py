@@ -22,6 +22,19 @@ def quadratic(parameters):
         fxn=parameters[1]
     except Exception as e:
         return ["Wrong Parameters Entered"]
+
+    n=len(xn)
+    sizey=len(fxn)
+    if sizey!=n:
+        return ["Make sure x and y are the same size"]
+
+    if n > len(set(xn)):
+        return ["There can not be repeated elements in x"]
+    for i in range(n-1):
+        if xn[i]>xn[i+1]:
+            return ["Error x are not in ascending order"]
+
+    
     result=[]
     createInequality(xn,fxn) 
     superMatrix = [[0 for x in range(3*len(inequality)+1)] for y in range(3*len(inequality))] 

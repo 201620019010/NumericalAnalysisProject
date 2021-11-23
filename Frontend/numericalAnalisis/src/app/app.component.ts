@@ -10,12 +10,17 @@ import {ApiConnectionService} from './api-connection.service'
 export class AppComponent {
   title = 'numericalAnalisis';
   parameters=parameters.parameters;
+  functionMethods=this.parameters.slice(0,7)
+  arrayMethods=this.parameters.slice(7,18)
+  interPolatingMethods=this.parameters.slice(18,24)
+  extras=this.parameters.slice(24,26)
   selectedOption=0
   graph=false
   selectedMethod:any
   parameterList: string[]=[]
   responseObj: any
   Help=false
+  parameterHistory: string[]=[]
 
 
   constructor(private apiConnectionService:ApiConnectionService) { }
@@ -35,6 +40,10 @@ export class AppComponent {
       this.graph=true
     }
 
+    if (this.selectedMethod.key!="Grapher"){
+      this.graph=false
+    }
+
   }
 
   calculate(data:any){
@@ -43,7 +52,14 @@ export class AppComponent {
     for (var key in data){
       var param=data[key]
       this.parameterList.push(param)
+      this.parameterHistory.push(param)
     }
+    
+
+    if (Array.length>10){
+      this.parameterHistory.pop()
+    }
+    console.log(this.parameterHistory)
 
     var apiObj={
       "key":this.selectedMethod.key,
@@ -57,6 +73,7 @@ export class AppComponent {
       this.responseObj=x
     })
 
+
     if (this.selectedMethod.key=="Grapher"){
       this.responseObj=[this.responseObj]
       console.log(this.responseObj)
@@ -66,6 +83,7 @@ export class AppComponent {
     this.parameterList=[]
 
   }
+
 
   help(){
     if (this.Help==false){

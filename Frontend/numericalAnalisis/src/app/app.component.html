@@ -1,24 +1,60 @@
 <div class="row">
   <div class="col" id="mainContainer">
+    <div class="row">
+      <div class="col">
+        <h4>Select Method</h4>
+        <hr/>
+      </div>
+    </div>
 
     <div class="row" id="seleccionMetodo">
       <div class="col">
         <br>
-        <h5>Select Method</h5>
+        <h5>Function Methods</h5>
         <select  [(ngModel)]="selectedOption" name="cars" id="cars">
-          <option *ngFor="let parameter of parameters" value={{parameter.Index}}>{{parameter.Index}}) {{parameter.key}}</option>
+          <option *ngFor="let method of functionMethods" value={{method.Index}}>{{method.Index}}) {{method.key}}</option>
         
         </select>
-        <br>
-        <br>
-        <button (click)="methodSelect()" class="btn btn-primary">Select</button>
       </div>
-      
-      
 
+      <div class="col">
+        <br>
+        <h5>Array Methods</h5>
+        <select  [(ngModel)]="selectedOption" name="cars" id="cars" >
+          <option *ngFor="let method of arrayMethods" value={{method.Index}}>{{method.Index}}) {{method.key}}</option>
+        
+        </select>
+      </div>
+
+      <div class="col">
+        <br>
+        <h5>Interpolation Methods</h5>
+        <select  [(ngModel)]="selectedOption" name="cars" id="cars" >
+          <option *ngFor="let method of interPolatingMethods" value={{method.Index}}>{{method.Index}}) {{method.key}}</option>
+        
+        </select> 
+      </div>
+
+      <div class="col">
+        <br>
+        <h5>Extras</h5>
+        <select  [(ngModel)]="selectedOption" name="cars" id="cars" >
+          <option *ngFor="let method of extras" value={{method.Index}}>{{method.Index}}) {{method.key}}</option>
+        
+        </select>
+      
+      
     </div>
     <br>
     <br>
+    <div class="row">
+      <div class="col">
+        <br>
+        <button (click)="methodSelect()" class="btn btn-primary">Select</button>
+      </div>
+    </div>
+
+    </div>
     <div class="row" id="parametros">
       <div class="col">
         
@@ -30,21 +66,23 @@
           <div  *ngIf="!Help" class="overflow-auto" id="form">
             <div  *ngFor="let parameter of selectedMethod.parameters | keyvalue: keepOrder" class="form-group" >
               <label  for="exampleInputEmail1">{{parameter.key}}</label>
-              <input name="{{parameter.key}}" ngModel type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a : {{parameter.value}}">
+              <!--<input name="{{parameter.key}}" ngModel type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a : {{parameter.value}}">-->
+              <input list="History" name="{{parameter.key}}" ngModel type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter a : {{parameter.value}}" />
+              <datalist id="History">
+                <option *ngFor="let history of parameterHistory" value="{{history}}">
+              </datalist>
             </div>
           </div>
           <div *ngIf="Help">
             <p *ngFor="let help of selectedMethod.Helps">{{help}}</p>
           </div>
+          <br>
           <div class="btn-group">
             <button type="submit" class="btn btn-primary btn-space">Calculate</button>
             <button (click)="help()" type="input" class="btn btn-primary btn-space">Help</button>
           </div>
         </form>
       </div>
-    </div>
-
-    <div class="row">
       <div class="col">
         <div id='title'>
           <h5>Result</h5>
@@ -57,7 +95,6 @@
           <img id="graph" src="data:image/png;base64,{{responseObj}}" alt="Red dot" />
         </div>
       </div>
-
     </div>
 
   </div>

@@ -22,12 +22,27 @@ def spline1(parameters):
         fi = eval(parameters[1])
     except Exception as e:
         return ["Wrong Parameters Entered"]
+
+    
     responseArray=[]
     resolucion = 10 # between each pair of points
 
     # PRocedure
     n = len(xi)
     # Obtains the polinome by segments
+    n=np.size(xi)
+    sizey=np.size(fi)
+    if sizey!=n:
+        return ["Make sure x and y are the same size"]
+
+    if n > len(set(xi)):
+        return ["There can not be repeated elements in x"]
+
+    for i in range(n-1):
+        if xi[i]>xi[i+1]:
+            return ["Error x are not in ascending order"]
+
+
     polinome = linealTrace(xi,fi)
 
     # OUT

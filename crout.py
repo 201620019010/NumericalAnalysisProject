@@ -20,6 +20,9 @@ def crout(parameters):
     matrixSize=A.shape
     L=np.identity(matrixSize[0])
     U=np.identity(matrixSize[0])
+
+    
+
     resultMatrix.append("Stage 0 --------------------------")
     for x in A:
         resultMatrix.append(np.array2string(x))

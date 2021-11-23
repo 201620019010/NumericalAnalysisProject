@@ -16,16 +16,18 @@ hr{
     border-top: 0.3vh solid rgba(236, 4, 4, 0.1);
 }
 #response{
-    height: 25vh;
+    height: 55vh;
+    text-align: left;
+    align-content:left;
 }
 
 #form{
-    height: 20vh;
+    
 }
 
 #graph{
-    height: 30vh;
-    width:35vh ;
+    height: 40vh;
+    width:40vh ;
     text-align: center;
 
 

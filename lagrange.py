@@ -8,6 +8,12 @@ def lagrange(parameters):
         return ["Wrong Parameters Entered"]
 
     n=np.size(x)
+    sizey=np.size(y)
+    if sizey!=n:
+        return ["Make sure x and y are the same size"]
+
+    if n > len(set(x)):
+        return ["There can not be repeated elements in x"]
 
     resultMatrix=[]
     resultMatrix.append("Lagrange Method------------------------------")
