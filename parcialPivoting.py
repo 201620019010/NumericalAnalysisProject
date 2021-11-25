@@ -10,6 +10,11 @@ def parcialPivoting(parameters):
     except ValueError:
         return ["Wrong Parameters Entered"]
 
+    try:
+        np.append(a,b,1)
+    except ValueError:
+        return ["Matrixes Have different size method fail"]
+
     arrSize=arr.shape
     height=arrSize[0]
     length=arrSize[1]
@@ -20,14 +25,22 @@ def parcialPivoting(parameters):
 
     responseArr.append("Stage:0--------------------------")
     for i in arr:
-        responseArr.append(np.array2string(i))
+        responseArr.append(np.array2string(np.around(i,decimals=2)))
 
     for i in range(0,length-2):
         ##################Pivoteo############################################
         diagonal=np.diagonal(arr)
+
+        if 0 in diagonal:
+            return ["There is a cero in the submatrix diagonal method failed"]
+
+            
         responseArr.append(("Stage: ",i+1,"--------------------------"))
         if i<length-1:
             column=list(map(abs,arr[:,i]))
+            
+           
+
             if i != 0:
                 column=column[i:]
 
@@ -57,7 +70,7 @@ def parcialPivoting(parameters):
             #rermplazamos la fila
             arr[j, :]=row
         for x in arr: 
-            responseArr.append(np.array2string(x))
+            responseArr.append(np.array2string(np.around(x,decimals=2)))
         #print(arr)
     depentVariablesMatrix=arr[:,length-1]
     coefficientMatrix=np.delete(arr,length-1,1)
@@ -65,9 +78,7 @@ def parcialPivoting(parameters):
     x=np.linalg.solve(coefficientMatrix,depentVariablesMatrix)
 
     responseArr.append("Answer Matrix--------------")
-    responseArr.append(np.array2string(x))
-    responseArr.append("Answer--------------------")
-    responseArr.append(str(x[0]))
+    responseArr.append(np.array2string(np.around(x,decimals=2)))
     return(responseArr)
 
 '''

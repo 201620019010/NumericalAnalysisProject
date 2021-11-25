@@ -73,7 +73,7 @@
               </datalist>
             </div>
           </div>
-          <div *ngIf="Help">
+          <div *ngIf="Help" class="overflow-auto" id="help">
             <p *ngFor="let help of selectedMethod.Helps">{{help}}</p>
           </div>
           <br>

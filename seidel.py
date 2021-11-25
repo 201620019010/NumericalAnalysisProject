@@ -13,6 +13,15 @@ def seidel(parameters):
         return ["Wrong Parameters Entered"]
     resultMatrix=[]
 
+    diagA=np.diagonal(A)
+
+    if 0 in diagA:
+        return ["There is a zero in the diagonal , method fail"]
+    if Tol<0:
+        return ["Tolerance cant be negative"]
+    if Nmax<0:
+        return ["N cant be negative"]
+
     resultMatrix.append("Seidel")
     resultMatrix.append("Results:")
 

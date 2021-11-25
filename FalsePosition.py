@@ -18,12 +18,22 @@ def falsePosition(parameters):
     if (xi>xs):
         return ["a must be less than b"]
 
+    try:
+        result=f(xi)
+    except Exception:
+        return ["a must exist in the function , try a different a value "]
+
+    try:
+        result2=f(xs)
+    except Exception:
+        return ["b must exist in the function , try a different b value "]
+
     resultMatrix=[]
 
 
     resultMatrix.append("False position")
     resultMatrix.append("Results table: ")
-    resultMatrix.append("|i |        a        |        xm       |        b        |      f(Xm)       |        E        |")
+    resultMatrix.append("|i   |    a     |        xm        |      b         |    f(Xm)        |        E         |")
 
     fxi = f(xi)
     fxs = f(xs)
@@ -40,12 +50,12 @@ def falsePosition(parameters):
 
         while (error > tol) and (fxm != 0) and (count < niter):
             if error == tol + 1:
-                resultMatrix.append(f" {count}  {xi:.10e}  {xm:.10e}  {xs:.10e}  {fxm:.10e}")
+                resultMatrix.append(f" {count}   {xi:.5f}     {xm:.5f}     {xs:.5f}       {fxm:.5f}")
             else:
                 if count < 3:
-                    resultMatrix.append(f" {count}  {xi:.10e}  {xm:.10e}  {xs:.10e}  {fxm:.10e}  {error:.10e}")
+                    resultMatrix.append(f" {count}   {xi:.5f}     {xm:.5f}     {xs:.5f}       {fxm:.5f}       {error:.5e}")
                 else:
-                    resultMatrix.append(f" {count}  {xi:.10e}  {xm:.10e}  {xs:.10e}  {fxm:.10e}  {error:.10e}")
+                    resultMatrix.append(f" {count}   {xi:.5f}     {xm:.5f}     {xs:.5f}       {fxm:.5f}       {error:.5e}")
             if (fxi * fxm) < 0:
                 xs = xm
                 fxs = fxm
@@ -58,9 +68,9 @@ def falsePosition(parameters):
             error = abs(xm - xaux)
             count += 1
         if count < 3:
-            resultMatrix.append(f" {count}  {xi:.10e}  {xm:.10e}  {xs:.10e}  {fxm:.10e}  {error:.10e}")
+            resultMatrix.append(f" {count}   {xi:.5f}     {xm:.5f}     {xs:.5f}       {fxm:.5f}       {error:.5e}")
         else:
-            resultMatrix.append(f" {count}  {xi:.10e}  {xm:.10e}  {xs:.10e}  {fxm:.10e}  {error:.10e}")
+            resultMatrix.append(f" {count}   {xi:.5f}     {xm:.5f}     {xs:.5f}       {fxm:.5f}       {error:.5e}")
         if fxm == 0:
             resultMatrix.append(f"{xm} is a root")
         elif error < tol:

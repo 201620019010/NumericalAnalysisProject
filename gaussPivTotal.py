@@ -43,7 +43,11 @@ def eliminacion_gaussiana_pivoteo(parameters):
         responseArr.append(("Stage ",k))
         Ab,marcas = pivoteo_total(Ab,k,marcas,n)    
         for i in range(k+1,n):
-            if Ab[k][k]:
+            if Ab[k][k]: 
+                #cero in diagonal submatrix exeption
+                if float(Ab[k][k])==0:
+                    return["There is a cero in the submatrix diagonal method will fail"]
+
                 multiplicador = Ab[i][k]/float(Ab[k][k])
             else:
                 # raise Exception("Error, división por 0")
@@ -53,7 +57,7 @@ def eliminacion_gaussiana_pivoteo(parameters):
                 Ab[i][j] = Ab[i][j] - multiplicador * Ab[k][j]
         
         for x in Ab:
-            responseArr.append(npy.array2string(npy.array(x)))
+            responseArr.append(npy.array2string(npy.around(npy.array(x),decimals=2)))
 
     Ab=npy.array(Ab)
     depentVariablesMatrix=Ab[:,n-1]
@@ -62,9 +66,8 @@ def eliminacion_gaussiana_pivoteo(parameters):
 
     x=npy.linalg.solve(coefficientMatrix,depentVariablesMatrix)
     responseArr.append("Answer Matrix--------------")
-    responseArr.append(npy.array2string(x))
-    responseArr.append("Answer--------------------")
-    responseArr.append(str(x[0]))
+    responseArr.append(npy.array2string(npy.around(x,decimals=2)))
+  
     return(responseArr)
 
 

@@ -18,6 +18,14 @@ def incrementalSearch(parameters):
 
     if delta<0:
         return ["Delta cant be negative"]
+    
+    if niter<0:
+        return ["Iterations can not be negative"]
+
+    try:
+        result=f(x0)
+    except Exception:
+        return["x0 must exist in the function try a different x0"]
 
     print("""
     Incremental search results:

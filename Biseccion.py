@@ -18,8 +18,23 @@ def bisection(parameters):
     except Exception as e:
         return ["Wrong Parameters Entered"]
 
-    print(f(a))
-    print(f(b))
+    if t<0:
+        return ["Tolerance can not be negative"]
+    if ite<0:
+        return ["Iterations can not be negative"]
+    if (a>b):
+        return ["a must be less than b"]
+
+    try:
+        result=f(a)
+    except Exception:
+        return ["a must exist in the function , try a different a value "]
+
+    try:
+        result2=f(b)
+    except Exception:
+        return ["b must exist in the function , try a different b value "]
+
     #We first look if the given values belong to the interval where the solution exists.
     '''if not (f(a) * f(b) < 0):
         print('Root for f(x) is not in the given interval')
@@ -28,7 +43,7 @@ def bisection(parameters):
     # We print a little value table where first values are shown.
     
     resultMatrix.append('--------------------------------------------------------------------------')
-    resultMatrix.append('iter \t\t a \t\t b \t\t c \t\t f(c)        ')
+    resultMatrix.append('iter \t\t a \t\t\t b \t\t\t c \t\t\t f(c)        ')
     resultMatrix.append('--------------------------------------------------------------------------')
     # We start looping
     for i in range(ite):

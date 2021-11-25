@@ -5,8 +5,8 @@ def newton(parameters):
     try:
         f = eval("lambda x:"+parameters[0])
         df = eval("lambda x:"+parameters[1])
-        tol = float(parameters[2])
-        x0 = float(parameters[3])
+        tol = float(parameters[3])
+        x0 = float(parameters[2])
         niter = float(parameters[4])
     except Exception as e:
         return ["Wrong Parameters Entered"]
@@ -19,24 +19,36 @@ def newton(parameters):
 
     resultMatrix.append("Newton")
     resultMatrix.append("Results table: ")
-    resultMatrix.append("|i|        xi       |     f(xi)      |        E       |")
+    resultMatrix.append("|i|  |     xi       |     f(xi)     |        E       | ")
 
-    fx = f(x0)
-    dfx = df(x0)
+    try:
+        fx = f(x0)
+    except:
+        return ["f(x0) doesnt exist"]
+
+    try:
+        dfx = df(x0)
+    except:
+        return ["df(x0) doesnt exist"]
+    
+
+    
     if dfx == 0:
-        return "there is a change in the signe in the derivate, therefore there are no roots at f(X)=0, cant run the method"
+        return ["there is a change in the signe in the derivate, therefore there are no roots at f(X)=0, cant run the method"]
 
+    err=0
     count = 0
     err = tol + 1
 
     while (err > tol) and (fx != 0) and (dfx != 0) and (count < niter):
+
         if err == tol + 1:
-            resultMatrix.append(f" {count}        {x0}       |  {fx:.10e}     |      null      |")
+            resultMatrix.append(f'|{count}| |{x0:.5f}| |{fx:.5f} |')
         else:
             if count < 10:
-                resultMatrix.append(f" {count}        {x0}       |     {fx:.10e}       |     {err:.10e}")
+                resultMatrix.append(f'|{count}| |{x0:.5f}| |{fx:.5f} | |{err:.3e}|')
             else:
-                resultMatrix.append(f" {count}        {x0}       |     {fx:.10e}       |     {err:.10e}")
+                resultMatrix.append(f'|{count}| |{x0:.5f}|  |{fx:.5f} |  |{err:.3e}|')
         x1 = x0 - (fx/dfx)
         fx = f(x1)
         dfx = df(x1)
@@ -44,9 +56,9 @@ def newton(parameters):
         x0 = x1
         count += 1
     if count < 10:
-        resultMatrix.append(f" {count}  {x0}       |     {fx:.10e}       |     {err:.10e}")
+        resultMatrix.append(f'|{count}| |{x0:.5f} | |{fx:.5f}| |{err:.3e}|')
     else:
-        resultMatrix.append(f" {count}  {x0}       |     {fx:.10e}       |     {err:.10e}")
+        resultMatrix.append(f'|{count}| |{x0:.5f} | |{fx:.5f}| |{err:.10e}|')
     if fx == 0:
         resultMatrix.append(f"{x0} is a root")
     elif err < tol:
@@ -66,8 +78,10 @@ x0=0.5
 n=100
 tol=1e-7
 
-result=newton(f,df,x0,tol,n)
+result=newton([f,df,x0,tol,n])
 
 for item in result:
     print(item)
-    print("")'''
+    print("")
+'''
+

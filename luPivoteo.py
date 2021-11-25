@@ -1,4 +1,5 @@
 import pprint
+import numpy as np
 
 
 def mult_matrix(M, N):
@@ -17,7 +18,7 @@ def pivot_matrix(M):
 
 def lu_decomposition(parameters):
     try:
-        A=parameters[0]
+        A=eval(parameters[0])
     except Exception as e:
         return ["Wrong Parameters Entered"]
     resultMatrix=[]
@@ -27,7 +28,7 @@ def lu_decomposition(parameters):
     P = pivot_matrix(A)
     PA = mult_matrix(P, A)
     for j in range(n):
-        resultMatrix.append("Stage:"+j)
+        resultMatrix.append(("Stage:",j))
         L[j][j] = 1.0
         for i in range(j+1):
             s1 = sum(U[k][j] * L[i][k] for k in range(i))
@@ -37,16 +38,13 @@ def lu_decomposition(parameters):
             L[i][j] = (PA[i][j] - s2) / U[j][j]
         print ("L:")
         resultMatrix.append("L:")
-        for x in L:
-            resultMatrix.append(x)
+        resultMatrix.append(np.array2string(np.around(L,decimals=2)))
         
         resultMatrix.append("U:")
-        for x in U:
-            resultMatrix.append(x)
+        resultMatrix.append(np.array2string(np.around(U,decimals=2)))
 
     resultMatrix.append("P:")
-    for x in P:
-            resultMatrix.append(x)
+    resultMatrix.append(np.array2string(np.around(P,decimals=2)))
     return resultMatrix
 
 '''

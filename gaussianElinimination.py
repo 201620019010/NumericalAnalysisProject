@@ -23,9 +23,12 @@ def gauss(parameters):
 
      
     diagonal=np.diagonal(arr)
-
+    determinant=np.linalg.det(arr)
+    if determinant==0:
+        return ["Determinant of matrix cant be zero"]
     if 0 in diagonal:
         return ["There is a zero in the diagonal cant run method"]
+    
 
     responseArr.append("Stage:0--------------------------")
     for i in arr:
@@ -44,16 +47,15 @@ def gauss(parameters):
             #rermplazamos la fila
             arr[j, :]=row
         for x in arr: 
-            responseArr.append(np.array2string(x))
+            responseArr.append(np.array2string(np.around(x,decimals=1)))
 
     depentVariablesMatrix=arr[:,length-1]
     coefficientMatrix=np.delete(arr,length-1,1)
 
     x=np.linalg.solve(coefficientMatrix,depentVariablesMatrix)
+    
     responseArr.append("Answer Matrix--------------")
-    responseArr.append(np.array2string(x))
-    responseArr.append("Answer--------------------")
-    responseArr.append(str(x[0]))
+    responseArr.append(np.array2string(np.around(x,decimals=1)))
     
     return(responseArr)
 

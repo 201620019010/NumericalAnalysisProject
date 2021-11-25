@@ -20,10 +20,18 @@ def secantMethod(parameters):
 
     resultMatrix.append("Secant")
     resultMatrix.append("Results table:")
-    resultMatrix.append("|i|        xi       |      f(xi)     |        E       |")
+    resultMatrix.append("|i|     xi       |      |     f(xi)   |       |       E         |")
     
+    try:
+        fx0 = f(x0)
+    except Exception:
+        return ["f(x0) doesnt exist in the function"]
 
-    fx0 = f(x0)
+    try:
+        fx1 = f(x1)
+    except Exception:
+        return ["f(x1) doesnt exist in the function"]
+    
 
     if fx0 == 0:
         resultMatrix.append(f"{x0} is a root: ")
@@ -36,13 +44,13 @@ def secantMethod(parameters):
         den = fx1 - fx0
         while err_aux > tol and fx1 != 0 and den != 0 and cont < niter:
             if err_aux == tol + 1:
-                resultMatrix.append(f" {cont}  {x0:.10e} {fx0:.10e}")
+                resultMatrix.append(f"{cont}   {x0:.5f}          {fx0:.5f}")
             else:
                 if cont < 10:
-                    resultMatrix.append(f" {cont}  {x0:.10e} {fx0:.10e} {err_aux:.10e}")
+                    resultMatrix.append(f"{cont}   {x0:.5f}         {fx0:.5f}         {err_aux:.5e}")
 
                 else:
-                    resultMatrix.append(f" {cont} {x0:.10e} {fx0:.10e} {err_aux:.10e}")
+                    resultMatrix.append(f"{cont}   {x0:.5f}         {fx0:.5f}         {err_aux:.5e}")
             err_aux = err
             x2 = x1 - fx1 * (x1 - x0)/den
             if den == 0:
@@ -55,9 +63,9 @@ def secantMethod(parameters):
             den = fx1 - fx0
             cont += 1
         if cont < 10:
-            resultMatrix.append(f" {cont}  {x0:.10e} {fx0:.10e} {err_aux:.10e}")
+            resultMatrix.append(f"{cont}   {x0:.5f}          {fx0:.5f}         {err_aux:.5e}")
         else:
-            resultMatrix.append(f" {cont} {x0:.10e} {fx0:.10e} {err_aux:.10e}")
+            resultMatrix.append(f"{cont}   {x0:.5f}          {fx0:.5f}         {err_aux:.5e}")
         if fx1 == 0:
             resultMatrix.append(f"{x1} is a root ")
         elif err < tol:

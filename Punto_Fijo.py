@@ -18,17 +18,28 @@ def Punto_Fijo(parameters):
         return ["Wrong Parameters Entered"]
     if tol<0:
         return ["Tolerance can not be negative"]
-    if niter<0:
+    if N<0:
         return ["Iterations can not be negative"]
     
     resultMatrix.append('\n\n*** Looping with fixed point ***')
+    resultMatrix.append('|N| |      Xi     |\t|    f(xi)|')
 
+    try:
+        result=f1(x0)
+    except Exception:
+        return ["f1(x0) doesnt exist "]
+
+    try:
+        result=g(x0)
+    except Exception:
+        return ["g(x0) doesnt exist "]
+ 
     step = 1
     flag = 1
     condition = True
     while condition:
         x1 = g(x0)
-        resultMatrix.append('Iteration-%d, x1 = %0.6f and f(x1) = %0.6f' % (step, x1, f1(x1)))
+        resultMatrix.append('|%d|  |%0.5f|  |%0.5f|' % (step, x1, f1(x1)))
         x0 = x1
 
         step = step + 1

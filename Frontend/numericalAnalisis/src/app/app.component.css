@@ -19,10 +19,12 @@ hr{
     height: 55vh;
     text-align: left;
     align-content:left;
+    width: 60vh;
+    white-space: pre;
 }
 
-#form{
-    
+#help{
+    height: 55vh;
 }
 
 #graph{

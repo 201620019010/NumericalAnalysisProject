@@ -1,6 +1,7 @@
 from math import sqrt
 import numpy as np
 from numpy.lib.function_base import append
+from numpy.lib.twodim_base import diag
 
 def jacobi(parameters):
     try:
@@ -13,6 +14,15 @@ def jacobi(parameters):
     except Exception as e:
         return ["Wrong Parameters Entered"]
     resultMatrix=[]
+
+    diagA=np.diagonal(A)
+
+    if 0 in diagA:
+        return ["There is a zero in the diagonal , method fail"]
+    if Tol<0:
+        return ["Tolerance cant be negative"]
+    if Nmax<0:
+        return ["N cant be negative"]
 
     resultMatrix.append("Jacobi")
     resultMatrix.append("Results:")
@@ -68,13 +78,13 @@ def calculateJacobi(x0,Tol,Nmax,x1,count,deci,A,b,disp,resultMatrix):
     resultMatrix.append("|Iteration| |Error| |Result|")
     while disp > Tol and count < Nmax:
         x1 = calculateNewJacobi(A,b,x0,x1)
-        result = [f"{i}" for i in x0]
+        result = [f"{i:.5f}" for i in x0]
         if count <= 9:
             ite = f"0{count}"
         else:
             ite = count
         
-        resultMatrix.append(f"|{ite}|        |{disp:.{deci}f}|  |{result}|")
+        resultMatrix.append(f"|{ite}|           |{disp:.{deci}f}|  |{result}|")
         count += 1
         disp = norm(x1,x0)
         x0 = [i for i in x1]
@@ -84,7 +94,7 @@ def calculateJacobi(x0,Tol,Nmax,x1,count,deci,A,b,disp,resultMatrix):
         else:
             ite = count
         result = [f"{i:.10e}" for i in x0]
-        resultMatrix.append(f"|{ite}|        |{disp:.{deci}f}|  |{result}|")
+        resultMatrix.append(f"|{ite}|           |{disp:.{deci}f}|  |{result}|")
         resultMatrix.append("x:")
        
         for i in x0:

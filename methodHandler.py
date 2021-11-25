@@ -50,7 +50,8 @@ numericalMethods={
     "spline3":spline3,
     "Grapher":graphFunction,
     "functionEvaluator":functionEvaluator,
-    "luParcial":lu_decomposition
+    "lUParcial":lu_decomposition,
+    "LUsimple":lu_decomposition,
 
 }
 

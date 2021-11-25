@@ -15,6 +15,18 @@ def sor(parameters):
     resultMatrix.append("Sor")
     resultMatrix.append("Results:")
 
+    diagA=np.diagonal(A)
+
+    if 0 in diagA:
+        return ["There is a zero in the diagonal , method fail"]
+    if Tol<0:
+        return ["Tolerance cant be negative"]
+    if Nmax<0:
+        return ["N cant be negative"]
+
+    if w>2 or w<0:
+        return ["w must be between 0 and 2"]
+
     C = []
     T = [[0 for i in range(len(A))] for j in range(len(A))]
     for i in range(len(A)):
@@ -40,6 +52,8 @@ def sor(parameters):
 
     val, ne =  np.linalg.eig(T) # T es la matriz
     sr = max(abs(val))
+    if sr>1:
+        return ["Error Spectral radius is greater than 1"]
     resultMatrix.append("Spectral Radius: ")
     resultMatrix.append(sr)
 

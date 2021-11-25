@@ -17,7 +17,8 @@ export const parameters =[
             "n=100",
             "--------------------------------",
             "In order for this method to be applied f(X) function must be real and continued",
-            "When picking deltax remeber to be really careful, if delta is too big the method wont find a root, and if its too short the emthod will become slow"
+            "When picking deltax remeber to be really careful, if delta is too big the method wont find a root, and if its too short the emthod will become slow",
+            "remember that x0 must exist in the function , try using the grapher to verify that x0 exists"
         ]
     },
     {
@@ -38,7 +39,7 @@ export const parameters =[
             "n=100",
             "tol=1e-7",
             "--------------------------------",
-            "If we have two values A,B and the product of f(a)*f(b)>=0 then this method will give us a solution",
+            "Remember that both a and b must exist in the function",
             "If there is more than one root  in the intevral [A,B] this method will give us an aproximation to the first root that it finds"
         ]
     },
@@ -60,9 +61,8 @@ export const parameters =[
             "n=100",
             "tol=1e-7",
             "--------------------------------",
-            "if f(a) and f(b) <0 then the root is located at the left side of the interval",
-            "f(a) and f(b) >0 then the root is located at the right side of the interval",
-            "This method converges faster than bisection because one of its values stays fixed , therefore requires less calculations, while the other initial value converges to the root"
+            "Remember that both a and b must exist in the function",
+            "If there is more than one root  in the intevral [A,B] this method will give us an aproximation to the first root that it finds"
         ]
     },
     {
@@ -83,8 +83,7 @@ export const parameters =[
             "n=100",
             "tol=1e-7",
             "--------------------------------",
-            "Newtons Method to to its speed its one of the most used",
-            "Its a variation of the static point method"
+            "Both f(x0) and f1(x0) must exist , try using the grapher to verify that it exists"
         ]
     },
     {
@@ -106,7 +105,8 @@ export const parameters =[
             "tol=1e-7",
             "--------------------------------",
             "This method from a f(x)=0 equation generates a X=g(x) equation that searches for the solution ",
-            "You must be really careful when picking X=g(x) because depending on this the method will be faster or slower"
+            "You must be really careful when picking X=g(x) because depending on this the method will be faster or slower",
+            "f(x0) and g(x0) must exist , use the grapher to verify their existance"
         ]
     },
     {
@@ -127,8 +127,7 @@ export const parameters =[
             "n=100",
             "tol=1e-7",
             "--------------------------------",
-            "Its a variation of newtons method so same considerations must be taken",
-            "For more help look at newtons method or static points help"
+            "Both f(x1) and g(x1) must exist , try using the grapher to verify that it exists"
         ]
     },
     {
@@ -153,7 +152,7 @@ export const parameters =[
             "--------------------------------",
             "One of the conditions to make sure this method convergers is that f'(x) must be different from 0",
             "When running the method if f´(xn) closes on 0 ,the method begins to slow  and there is a possible multiple root ",
-            "This method is known as a better newton with the difference that f''(x) is used"
+            
         ]
     },
     {
@@ -169,7 +168,8 @@ export const parameters =[
             "b=[1],[1],[1],[1]",
             "--------------------------------",
             "Remember if there is a zero in the diagonal the method will fail",
-            "Rember tha A and b must have the same number of rows"
+            "Rember tha A and b must have the same number of rows",
+            "The determinant of the matrix cant be zero"
         ]
     },
 
@@ -182,10 +182,10 @@ export const parameters =[
         },
         "Helps":[
             "Input Example-------------------",
-            "a=[2,-1,0,3],[1,0.5,3,8],[0,13,-2,11],[14,5,-2,3]",
-            "b=[1],[1],[1],[1]",
+            "a=[[2,-1,0,3],[1,0.5,3,8],[0,13,-2,11],[14,5,-2,3]]",
+            "b=[1,1,1,1]",
             "--------------------------------",
-            "Remember if there is a zero in the diagonal the method will fail",
+            "Remember if there is a zero in the submatrix diagonal the method will fail",
             "Rember tha A and b must have the same number of rows"
         ]
     },
@@ -201,7 +201,7 @@ export const parameters =[
             "a=[2,-1,0,3],[1,0.5,3,8],[0,13,-2,11],[14,5,-2,3]",
             "b=[1],[1],[1],[1]",
             "--------------------------------",
-            "Remember if there is a zero in the diagonal the method will fail",
+            "Remember if there is a zero in the subamatrix diagonal the method will fail",
             "Rember tha A and b must have the same number of rows"
         ]
     },
@@ -249,7 +249,7 @@ export const parameters =[
             "a=[2,-1,0,3],[1,0.5,3,8],[0,13,-2,11],[14,5,-2,3]",
             "b=[1],[1],[1],[1]",
             "--------------------------------",
-            "Remember if there is a zero in the diagonal the method will fail",
+            "Remember if there is a zero in the diagonal of L or U the method will fail",
             "Rember tha A and b must have the same number of rows",
             "This Method is finite, it will apply a formula to find the anwer"
         ]
@@ -266,7 +266,7 @@ export const parameters =[
             "a=[2,-1,0,3],[1,0.5,3,8],[0,13,-2,11],[14,5,-2,3]",
             "b=[1],[1],[1],[1]",
             "--------------------------------",
-            "Remember if there is a zero in the diagonal the method will fail",
+            "Remember if there is a zero in the diagonal of L or U the method will fail",
             "Rember tha A and b must have the same number of rows",
             "This Method is finite, it will apply a formula to find the anwer"
         ]
@@ -284,9 +284,10 @@ export const parameters =[
             "a=[2,-1,0,3],[1,0.5,3,8],[0,13,-2,11],[14,5,-2,3]",
             "b=[1],[1],[1],[1]",
             "--------------------------------",
-            "Remember if there is a zero in the diagonal the method will fail",
+            "Remember if there is a zero in the diagonal of L or U the method will fail",
             "Rember tha A and b must have the same number of rows",
-            "This Method is finite, it will apply a formula to find the anwer"
+            "This Method is finite, it will apply a formula to find the anwer",
+            "Method will not work if it has to find the square root of a negative number"
         ]
     },
 
@@ -308,12 +309,12 @@ export const parameters =[
             "tol=1e-7",
             "n=100",
             "--------------------------------",
-            "Remember if there is a zero in the diagonal the method will fail",
+            "A must be invertible therefore elements in the diagonal cant be zero",
             "Rember tha A and b must have the same number of rows",
             "If the Spectral radius of T is <1 the method converges",
             "A diagonally dominant matrix means that for each row ,the sum of the elements beside the diagonal must be less than the diagonal",
             "If  A is strictly diagonally dominant de method converges",
-            "This method is not finite , it will run until it reaches a certain tolerance"
+            
         ]
     },
     {
@@ -338,7 +339,8 @@ export const parameters =[
             "Rember tha A and b must have the same number of rows",
             "If the Spectral radius of T is <1 the method converges",
             "A diagonally dominant matrix means that for each row ,the sum of the elements beside the diagonal must be less than the diagonal",
-            "If  A is strictly diagonally dominant de method converges"
+            "If  A is strictly diagonally dominant de method converges",
+            
         ]
     },
     {
@@ -365,7 +367,9 @@ export const parameters =[
             "Rember tha A and b must have the same number of rows",
             "If the Spectral radius of T is <1 the method converges",
             "A diagonally dominant matrix means that for each row ,the sum of the elements beside the diagonal must be less than the diagonal",
-            "If  A is strictly diagonally dominant de method converges"
+            "If  A is strictly diagonally dominant de method converges",
+            "W must between 0 and 2  if w=1 gauss seidel , if 0<w<1 then the sub-relaxation method is used,if 1<w<2 then over-relaxation method is used",
+            "The spectral radius must be less than 1 for the method to work"
         ]
     },
 
